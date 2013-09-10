@@ -1,0 +1,146 @@
+------------------------------------------------------------------------
+2007
+
+ 3 Jan  - First version of Spinors.nb. Chosen version number 0.3.0.
+	- xTensor modified to contract and canonicalize antisymmetric
+	  metrics. Added option ExtendedFrom in DefCovD.
+	- DefSpinStructure.
+23 Jan	- Eliminated warning messages RuleDelayed::rhs produced by
+	  DefSpinStructure.
+16 Aug	- Updated Spinors.nb for version 0.9.2 of xAct.
+ 5 Oct  - Eliminated the syntax of DefSpinStructure in which the user
+          supplies the explicit names of the epsilon tensor and the 
+          soldering form. The reason for this is due to clashes between 
+          the indices given by the user and those used internally by 
+          DefSpinStructure.
+        - Added the option Master->Spin_structure_name in the definition
+          of the curvature spinors.
+
+------------------------------------------------------------------------
+2008
+
+ 2 Jan  - Changes in the tensor names assigned automatically by
+          DefSpinStructure. Some other minor changes. 
+ 4 Jan  - Added Remove in the code of UndefSpinStructure in order to remove
+          the symbol representing the spin structure.
+        - Corrected a bug in Decomposition which arose when using the option
+          FRiemann.
+ 9 Jan  - Added PutSolderingForm and VBundleOfSolderingForm.
+16 Jan  - Introduced the spinor equivalent of the metric tensor. This spinor
+          is automatically replaced by a product of epsilon spinors. 
+ 9 May  - PutSolderingForm broken in two parts. Default index arguments.
+10 May  - Lots of small changes for compatibility with latest xTensor/xCoba.
+        - Added derivatives with two indices using a generalized form of
+          MakeLinearDerivative in xTensor.
+12 May  - Added a type for spin derivatives
+        - ContractSolderingForm and SeparateSolderingForm can now handle
+          2-index derivatives.   
+15 Jul  - The action of Dagger upon the Box differential operator is
+          declared by means of a downvalue, instead of an upvalue.
+16 Jul  - Introduced the commands BoxToCovD and BoxToCurvature.
+17 Jul  - Corrected a bug in the functions spindRules and tindRules.
+18 Jul  - DefSpinorOfTensor can now handle tensors which are complex 
+          (if a tensor is complex and we define its spinor equivalent,
+          then we need to consider the spinor equivalent of the complex
+          conjugate tensor). This requires a modification in the code
+          of ContractSolderingForm in order to keep our convention
+          about index sorting.
+ 6 Aug  - Introduced the global variables $PhiSign, $ChiSign, $PsiSign
+          and $LambdaSign used to set the conventions in the definition
+          of the curvature spinors. 
+        - $SolderingForms turned into a public variable.
+        - Changed the declaration of the automatic rules which give the
+          product of the tetra-metric with Sigma. In this way the number
+          of such rules is reduced.
+ 7 Aug  - Changed the formatting of the operator Boxcd in order to add
+          information about the covariant derivative cd. 
+10 Aug  - Added the spinor equivalent of the volume element and its
+          automatic rule of decomposition into irreducible parts.  
+11 Aug  * First public release, with version number 0.9.0.
+
+24 Sep  - Fixed wrong sign in the traces of Sigmasoldering.
+ 2 Oct  - Solved missing sign in contractions with sigma (SpinSign).
+ 7 Oct  - Fixed signs in products of sigma's giving Sigma.
+16 Oct  - Added IrreducibleDecomposition.
+ 2 Nov  - Added missing symmetries on the spinor Chi when it stems from the
+          Levi-Civita connection. Included also the case in which the
+          torsion is present.
+        - Added torsion spinor Omega. Changes in BoxToCurvature to include
+          the torsion and to make the expressions consistent with the
+          spinor form of the Ricci identities.
+        - DefSpinCovD accepts now the option Torsion->True.
+        - Added Posibility of definining spin structures on spacetimes with
+          torsion.
+20 Nov  - Fixed special case 0 in Put/Separate/ContractSolderingForm.
+        - SpinCovDs are now "Hermitian".
+23 Nov  - ContractSolderingForm acts through compatible derivatives.
+ 1 Dec  - Spinors.nb and SpinorsDoc.nb reexecuted and cleaned.
+        * Released with version number 0.9.1.
+
+------------------------------------------------------------------------
+2009
+
+ 9 Sep  - Documentation extended.
+        - File PublicNPGHP.nb with applications of Spinors to NP and GHP
+          separated from the main documentation file.
+        * Released with version number 0.9.2.
+ 9 Dec  - Fixed wrong sign conventions in the code of BoxToCurvature and
+          the code which computes the decomposition of the curvature spinor
+          Chi (DecompositionRules[covd,Chi]). Thanks to Thomas Bäckdahl for
+          spotting these mismatches. One needs to check the formulae in
+          BoxToCurvature when the torsion does not vanish (currently there
+          is a private function named $BoxTorsionSign which will show up when
+          the torsion does not vanish). 
+
+------------------------------------------------------------------------
+2010
+
+10 Jan * Rereleased with same version number 0.9.2.
+22 Sep - Fixed wrong dummy index position in the contraction of the curvature
+         spinors Phi and Dagger@Phi when the torsion is non-zero (when the
+         torsion vanishes, this index position is irrelevant due to the
+         additional symmetries of Phi).
+       - Variable $BoxTorsionSign coincides with $TorsionSign, which replaces
+         it now.
+       - Fixed wrong results by the command BoxToCurvature when the torsion 
+         does  not vanish.
+       - Added command SortSpinCovDs which is the counterpart of SortCovDs for 2-index
+         spin covariant derivatives.
+30 Sep * Released with version number 1.0.0.
+
+------------------------------------------------------------------------
+2011
+
+11 Mar - Added definition for FirstDerQ on spin covds, as suggested by Thomas.
+22 Mar - For some reason, there was an error message issued when DefSpinCovD was an
+         extension of the Levi-Civita covd of a frozen metric. This message no longer
+         exists.
+23 Mar - When DefSpinCovD carries the option Curvature->False, then one cannot define
+         the curvature spinors. We included some checks in the rutine ConstructRTSpinors 
+         to fix that.
+17 Apr - SpinCovDQ made public.
+       * Released with version number 1.0.1.
+
+23 Oct - Changed sign of the spinor form of the epsilon tensor, as suggested
+	 by Thomas, to coincide with the conventions in Penrose & Rindler.
+	 Currently it uses $epsilonTetraSign.
+       * Released with version number 1.0.2.
+
+------------------------------------------------------------------------
+2012
+
+28 Apr - Fixed problem in SeparateSolderingForm with dagger tensors, found by Thomas.
+       - Added variable $xTensorVersionExpected to enforce the correct version.
+       - Changed $PsiSign convention to match Penrose & Rindler.
+ 5 May * Released with version number 1.0.3.
+
+------------------------------------------------------------------------
+2013
+
+26 Jan - TensorSymmetry renamed SymmetryOfTensor to avoid conflict with
+	 Mathematica9.
+27 Jan * Released with version number 1.0.4.
+
+16 Mar - Use VBundleIndexQ and VBundleIndexPMQ to construct the `Q and `pmQ
+	 functions.
+???    * Released with version number 1.0.5.
