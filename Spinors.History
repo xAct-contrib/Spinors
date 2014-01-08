@@ -144,3 +144,10 @@
 16 Mar - Use VBundleIndexQ and VBundleIndexPMQ to construct the `Q and `pmQ
 	 functions.
 ???    * Released with version number 1.0.5.
+
+-------------------------------------------------------------------------
+2014
+
+9 Jan - Corrected minor error in SpinCovDsOfSolderingForm pointed out by Thomas Bäckdahl. 
+        The spin covariant derivative used in DefSpinStructure was repeated in the list generated 
+        by SpinCovDsOfSolderingForm.
