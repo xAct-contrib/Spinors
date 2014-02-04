@@ -151,3 +151,6 @@
 9 Jan - Corrected minor error in SpinCovDsOfSolderingForm pointed out by Thomas Bäckdahl. 
         The spin covariant derivative used in DefSpinStructure was repeated in the list generated 
         by SpinCovDsOfSolderingForm.
+        
+4 Feb  - Corrected problem with non-existent options message issued by DefSpinStructure in relation to DefSpinCovD
+         Thanks to Thomas Bäckdahl for spotting this and providing the solution.

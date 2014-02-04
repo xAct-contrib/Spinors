@@ -260,7 +260,7 @@ isetdelayed[epsdag[-A_Symbol,B_Symbol],delta[-A,B]];
 
 (* 6. Spinor construction *)
 Module[{sigmaprefix,sigmamark},
-{sigmaprefix,sigmamark}=OptionValue[DefSpinStructure,{options},{SpinorPrefix,SpinorMark}];
+{sigmaprefix,sigmamark}=OptionValue[{DefSpinStructure,DefCovD},{options},{SpinorPrefix,SpinorMark}];
 SpinorPrefix[sigma]^=If[sigmaprefix===Identity,sigma,sigmaprefix];
 SpinorMark[sigma]^=If[sigmamark===PrintAs,PrintAs[sigma],sigmamark];
 ];

@@ -1555,7 +1555,10 @@ Cell[BoxData[
                     RowBox[{"{", 
                     RowBox[{"sigmaprefix", ",", "sigmamark"}], "}"}], "=", 
                     RowBox[{"OptionValue", "[", 
-                    RowBox[{"DefSpinStructure", ",", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"DefSpinStructure", ",", "DefCovD"}], "}"}], ",", 
+                    
                     RowBox[{"{", "options", "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"SpinorPrefix", ",", "SpinorMark"}], "}"}]}], 
@@ -2068,7 +2071,7 @@ Cell[BoxData[
  InitializationCell->True,
  CellChangeTimes->{{3.598184318060506*^9, 3.5981843239509573`*^9}, {
   3.598184449146654*^9, 3.598184463861652*^9}, {3.598184520083227*^9, 
-  3.598184526720064*^9}}],
+  3.598184526720064*^9}, {3.6005191580653477`*^9, 3.600519176809597*^9}}],
 
 Cell["\<\
 Alfonso: in the formula which gives the decomposition of the spinor \
@@ -2079,7 +2082,7 @@ with some convention when defining the volume element.\
  CellChangeTimes->{{3.427351652390977*^9, 3.4273517191947603`*^9}, {
   3.427371503328878*^9, 3.4273715056962442`*^9}, {3.494137575214916*^9, 
   3.4941375773088617`*^9}}]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -3426,11 +3429,11 @@ Cell[BoxData[
         RowBox[{"DeleteDuplicates", "[", 
          RowBox[{"Prepend", "[", 
           RowBox[{"f", ",", "Free"}], "]"}], "]"}], "[", "expr", "]"}], ",", 
-       "sigma"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       "sigma"}], "]"}]}], ";"}], "\n", 
    RowBox[{"(*", " ", 
     RowBox[{"Actual", " ", "working", " ", 
      RowBox[{"function", ".", " ", "Two"}], " ", "entry", " ", "points"}], 
-    " ", "*)"}], "\n", 
+    " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"PutSolderingForm", "[", 
