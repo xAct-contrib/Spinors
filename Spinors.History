@@ -143,7 +143,6 @@
 
 16 Mar - Use VBundleIndexQ and VBundleIndexPMQ to construct the `Q and `pmQ
 	 functions.
-???    * Released with version number 1.0.5.
 
 -------------------------------------------------------------------------
 2014
@@ -154,3 +153,5 @@
         
 4 Feb  - Corrected problem with non-existent options message issued by DefSpinStructure in relation to DefSpinCovD
          Thanks to Thomas Bäckdahl for spotting this and providing the solution.
+
+15 Feb   * Released with version number 1.0.5.

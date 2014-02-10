@@ -20,7 +20,7 @@
 
 
 xAct`Spinors`$xTensorVersionExpected={"1.1.0",{2013,7,1}};
-xAct`Spinors`$Version={"1.0.5",{2013,7,1}}
+xAct`Spinors`$Version={"1.0.5",{2014,2,15}}
 
 
 (* Spinors: spinor calculus in General Relativity *)
