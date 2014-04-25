@@ -120,6 +120,7 @@ SpinorMark::usage="SpinorMark is an option for DefSpinStructure specifying how t
 DefSpinor::usage="DefSpinor is a renaming of DefTensor with the option Dagger->Complex, for the sake of clarity.";
 UndefSpinor::usage="UndefSpinor is a renaming of UndefTensor, for the sake of clarity.";
 Sigma::usage="Sigma[sigma] is automatically transformed into the symbol Sigmasigma, where sigma is a soldering form. The symbol Sigmasigma is the head used to represent the quantity sigma[a,-A,-A\[Dagger]]sigma[b,-B,A\[Dagger]] which often appears in the transformation of spinor expressions into tensor ones.";
+PrintDaggerAs::usage="PrintDaggerAs is an optional function for DefSpinor that specifies how the PrintAs string for the complex conjugate spinor should be generated from the PrintAs string for the original spinor.";
 
 
 (* Info functions *)
@@ -326,8 +327,12 @@ SetNumberOfArguments[UndefSpinStructure,1];
 Protect[UndefSpinStructure];
 
 
-DefSpinor[tensor_,deps_,options:OptionsPattern[]]:=DefTensor[tensor,deps,options,Dagger->Complex,DefInfo->{"spinor",""}];
-DefSpinor[tensor_,deps_,sym_,options:OptionsPattern[]]:=DefTensor[tensor,deps,sym,options,Dagger->Complex,DefInfo->{"spinor",""}];
+Options[DefSpinor]={PrintDaggerAs->Identity};
+DefSpinor[spinor_[inds___],deps_,options:OptionsPattern[{DefSpinor,DefTensor}]]:=(DefTensor[spinor[inds],deps,FilterRules[{options},Options[DefTensor]],Dagger->Complex,DefInfo->{"spinor",""}];
+xAct`xTensor`Private`SetPrintAs[Dagger@spinor,xAct`xTensor`Private`PrintAsString[Dagger@spinor,OptionValue[PrintDaggerAs]]];);
+
+DefSpinor[spinor_[inds___],deps_,sym_,options:OptionsPattern[{DefSpinor,DefTensor}]]:=(DefTensor[spinor[inds],deps,sym,FilterRules[{options},Options[DefTensor]],Dagger->Complex,DefInfo->{"spinor",""}];
+xAct`xTensor`Private`SetPrintAs[Dagger@spinor,xAct`xTensor`Private`PrintAsString[Dagger@spinor,OptionValue[PrintDaggerAs]]];);
 UndefSpinor=UndefTensor;
 SetNumberOfArguments[DefSpinor,{2,Infinity}];
 Protect[DefSpinor,UndefSpinor];

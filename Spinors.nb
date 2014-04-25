@@ -673,8 +673,15 @@ clarity.\>\""}], ";"}], "\[IndentingNewLine]",
 Sigmasigma, where sigma is a soldering form. The symbol Sigmasigma is the \
 head used to represent the quantity sigma[a,-A,-A\[Dagger]]sigma[b,-B,A\
 \[Dagger]] which often appears in the transformation of spinor expressions \
-into tensor ones.\>\""}], ";"}]}]}]], "Input",
- InitializationCell->True],
+into tensor ones.\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PrintDaggerAs", "::", "usage"}], "=", 
+     "\"\<PrintDaggerAs is an optional function for DefSpinor that specifies \
+how the PrintAs string for the complex conjugate spinor should be generated \
+from the PrintAs string for the original spinor.\>\""}], ";"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6074033292387247`*^9, 3.607403332062971*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -931,7 +938,7 @@ SortCovDs for 2-index spin covariant derivatives. The basic identity used to \
 re-order the spin covariant derivatives is their commutator in terms of the \
 box operator\>\""}], ";"}]}]}]], "Input",
  InitializationCell->True]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -2220,8 +2227,7 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Protect", "[", 
-   RowBox[{"DefSpinor", ",", "UndefSpinor"}], "]"}], ";"}]}], "Input",
- InitializationCell->True],
+   RowBox[{"DefSpinor", ",", "UndefSpinor"}], "]"}], ";"}]}], "Input"],
 
 Cell["\<\
 There is no function SpinorQ, though it might be introduced, probably \
@@ -2240,8 +2246,103 @@ have a more restrictive convention [ A, A\[Dagger], B, B\[Dagger], ... ] \
 \>", "Text",
  CellChangeTimes->{{3.425991925857099*^9, 3.4259920790353317`*^9}, {
   3.427196463773427*^9, 3.427196501992991*^9}, {3.494137934753875*^9, 
-  3.4941379391166573`*^9}}]
-}, Closed]],
+  3.4941379391166573`*^9}}],
+
+Cell["\<\
+Thomas\[CloseCurlyQuote]s code to include printing options for dagger spinors.\
+\>", "Text",
+ CellChangeTimes->{{3.607363025317233*^9, 3.607363048828104*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "DefSpinor", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"PrintDaggerAs", "\[Rule]", "Identity"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"DefSpinor", "[", 
+     RowBox[{
+      RowBox[{"spinor_", "[", "inds___", "]"}], ",", "deps_", ",", 
+      RowBox[{"options", ":", 
+       RowBox[{"OptionsPattern", "[", 
+        RowBox[{"{", 
+         RowBox[{"DefSpinor", ",", "DefTensor"}], "}"}], "]"}]}]}], "]"}], ":=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"DefTensor", "[", 
+       RowBox[{
+        RowBox[{"spinor", "[", "inds", "]"}], ",", "deps", ",", 
+        RowBox[{"FilterRules", "[", 
+         RowBox[{
+          RowBox[{"{", "options", "}"}], ",", 
+          RowBox[{"Options", "[", "DefTensor", "]"}]}], "]"}], ",", 
+        RowBox[{"Dagger", "\[Rule]", "Complex"}], ",", 
+        RowBox[{"DefInfo", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<spinor\>\"", ",", "\"\<\>\""}], "}"}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"xAct`xTensor`Private`SetPrintAs", "[", 
+       RowBox[{
+        RowBox[{"Dagger", "@", "spinor"}], ",", 
+        RowBox[{"xAct`xTensor`Private`PrintAsString", "[", 
+         RowBox[{
+          RowBox[{"Dagger", "@", "spinor"}], ",", 
+          RowBox[{"OptionValue", "[", "PrintDaggerAs", "]"}]}], "]"}]}], 
+       "]"}], ";"}], ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DefSpinor", "[", 
+    RowBox[{
+     RowBox[{"spinor_", "[", "inds___", "]"}], ",", "deps_", ",", "sym_", ",", 
+     RowBox[{"options", ":", 
+      RowBox[{"OptionsPattern", "[", 
+       RowBox[{"{", 
+        RowBox[{"DefSpinor", ",", "DefTensor"}], "}"}], "]"}]}]}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"DefTensor", "[", 
+      RowBox[{
+       RowBox[{"spinor", "[", "inds", "]"}], ",", "deps", ",", "sym", ",", 
+       RowBox[{"FilterRules", "[", 
+        RowBox[{
+         RowBox[{"{", "options", "}"}], ",", 
+         RowBox[{"Options", "[", "DefTensor", "]"}]}], "]"}], ",", 
+       RowBox[{"Dagger", "\[Rule]", "Complex"}], ",", 
+       RowBox[{"DefInfo", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<spinor\>\"", ",", "\"\<\>\""}], "}"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"xAct`xTensor`Private`SetPrintAs", "[", 
+      RowBox[{
+       RowBox[{"Dagger", "@", "spinor"}], ",", 
+       RowBox[{"xAct`xTensor`Private`PrintAsString", "[", 
+        RowBox[{
+         RowBox[{"Dagger", "@", "spinor"}], ",", 
+         RowBox[{"OptionValue", "[", "PrintDaggerAs", "]"}]}], "]"}]}], "]"}],
+      ";"}], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"UndefSpinor", "=", "UndefTensor"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetNumberOfArguments", "[", 
+   RowBox[{"DefSpinor", ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "Infinity"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Protect", "[", 
+   RowBox[{"DefSpinor", ",", "UndefSpinor"}], "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.607362870339553*^9, 3.607362872144006*^9}, {
+   3.607402431074595*^9, 3.607402480993247*^9}, {3.607402541743712*^9, 
+   3.607402564932765*^9}, {3.607402609357428*^9, 3.607402660285019*^9}, {
+   3.607402715286092*^9, 3.6074027208907003`*^9}, {3.607402761780243*^9, 
+   3.607402787745901*^9}, {3.6074032964337606`*^9, 3.607403298703354*^9}, 
+   3.607403357512301*^9, {3.607414896044651*^9, 3.607414924545024*^9}, {
+   3.60741495497059*^9, 3.6074149692756977`*^9}}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -3431,11 +3532,11 @@ Cell[BoxData[
         RowBox[{"DeleteDuplicates", "[", 
          RowBox[{"Prepend", "[", 
           RowBox[{"f", ",", "Free"}], "]"}], "]"}], "[", "expr", "]"}], ",", 
-       "sigma"}], "]"}]}], ";"}], "\n", 
+       "sigma"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"Actual", " ", "working", " ", 
      RowBox[{"function", ".", " ", "Two"}], " ", "entry", " ", "points"}], 
-    " ", "*)"}], "\[IndentingNewLine]", 
+    " ", "*)"}], "\n", 
    RowBox[{
     RowBox[{
      RowBox[{"PutSolderingForm", "[", 
@@ -34902,7 +35003,7 @@ ButtonData:>\\\"paclet:ref/message/Information/nomatch\\\", ButtonNote -> \
 },
 AutoGeneratedPackage->Automatic,
 WindowSize->{1172, 699},
-WindowMargins->{{Automatic, 332}, {35, Automatic}},
+WindowMargins->{{117, Automatic}, {Automatic, 159}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 ShowSelection->True,
 Magnification->1.5,
