@@ -155,3 +155,5 @@
          Thanks to Thomas Bäckdahl for spotting this and providing the solution.
 
 15 Feb   * Released with version number 1.0.5.
+
+25 Apr  - Added Thomas's PrintDaggerAs option in DefSpinor

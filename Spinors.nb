@@ -2188,65 +2188,8 @@ can be defined/undefined using DefTensor/UndefTensor. However, for aesthetic \
 reasons, we include these two heads:\
 \>", "Text",
  CellChangeTimes->{{3.425991784128746*^9, 3.4259918408794622`*^9}, {
-  3.425991871265915*^9, 3.425991873918715*^9}}],
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{
-   RowBox[{"DefSpinor", "[", 
-    RowBox[{"tensor_", ",", "deps_", ",", 
-     RowBox[{"options", ":", 
-      RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
-   RowBox[{"DefTensor", "[", 
-    RowBox[{"tensor", ",", "deps", ",", "options", ",", 
-     RowBox[{"Dagger", "\[Rule]", "Complex"}], ",", 
-     RowBox[{"DefInfo", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"\"\<spinor\>\"", ",", "\"\<\>\""}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"DefSpinor", "[", 
-    RowBox[{"tensor_", ",", "deps_", ",", "sym_", ",", 
-     RowBox[{"options", ":", 
-      RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
-   RowBox[{"DefTensor", "[", 
-    RowBox[{"tensor", ",", "deps", ",", "sym", ",", "options", ",", 
-     RowBox[{"Dagger", "\[Rule]", "Complex"}], ",", 
-     RowBox[{"DefInfo", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"\"\<spinor\>\"", ",", "\"\<\>\""}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"UndefSpinor", "=", "UndefTensor"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"SetNumberOfArguments", "[", 
-   RowBox[{"DefSpinor", ",", 
-    RowBox[{"{", 
-     RowBox[{"2", ",", "Infinity"}], "}"}]}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Protect", "[", 
-   RowBox[{"DefSpinor", ",", "UndefSpinor"}], "]"}], ";"}]}], "Input"],
-
-Cell["\<\
-There is no function SpinorQ, though it might be introduced, probably \
-performing additional checks to xTensorQ.\
-\>", "Text",
- CellChangeTimes->{{3.426002368341506*^9, 3.426002394145482*^9}}],
-
-Cell["\<\
-Any tensor (real or complex) has an associated spinor (Hermitian or complex, \
-respectively). However, not any spinor has an associated tensor. Only those \
-spinors with equal number of indices in VB and Dagger[VB] can have an \
-associated tensor. We shall follow the convention that the indices in a \
-spinor are paired in the following way: the first index of VB is paired with \
-the first index of Dagger[VB], the second with the second, etc. Indeed, we \
-have a more restrictive convention [ A, A\[Dagger], B, B\[Dagger], ... ] \
-\>", "Text",
- CellChangeTimes->{{3.425991925857099*^9, 3.4259920790353317`*^9}, {
-  3.427196463773427*^9, 3.427196501992991*^9}, {3.494137934753875*^9, 
-  3.4941379391166573`*^9}}],
+  3.425991871265915*^9, 3.425991873918715*^9}, {3.610078123330405*^9, 
+  3.610078129258463*^9}}],
 
 Cell["\<\
 Thomas\[CloseCurlyQuote]s code to include printing options for dagger spinors.\
@@ -2341,7 +2284,26 @@ Cell[BoxData[{
    3.607402715286092*^9, 3.6074027208907003`*^9}, {3.607402761780243*^9, 
    3.607402787745901*^9}, {3.6074032964337606`*^9, 3.607403298703354*^9}, 
    3.607403357512301*^9, {3.607414896044651*^9, 3.607414924545024*^9}, {
-   3.60741495497059*^9, 3.6074149692756977`*^9}}]
+   3.60741495497059*^9, 3.6074149692756977`*^9}}],
+
+Cell["\<\
+There is no function SpinorQ, though it might be introduced, probably \
+performing additional checks to xTensorQ.\
+\>", "Text",
+ CellChangeTimes->{{3.426002368341506*^9, 3.426002394145482*^9}}],
+
+Cell["\<\
+Any tensor (real or complex) has an associated spinor (Hermitian or complex, \
+respectively). However, not any spinor has an associated tensor. Only those \
+spinors with equal number of indices in VB and Dagger[VB] can have an \
+associated tensor. We shall follow the convention that the indices in a \
+spinor are paired in the following way: the first index of VB is paired with \
+the first index of Dagger[VB], the second with the second, etc. Indeed, we \
+have a more restrictive convention [ A, A\[Dagger], B, B\[Dagger], ... ] \
+\>", "Text",
+ CellChangeTimes->{{3.425991925857099*^9, 3.4259920790353317`*^9}, {
+  3.427196463773427*^9, 3.427196501992991*^9}, {3.494137934753875*^9, 
+  3.4941379391166573`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3532,11 +3494,11 @@ Cell[BoxData[
         RowBox[{"DeleteDuplicates", "[", 
          RowBox[{"Prepend", "[", 
           RowBox[{"f", ",", "Free"}], "]"}], "]"}], "[", "expr", "]"}], ",", 
-       "sigma"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       "sigma"}], "]"}]}], ";"}], "\n", 
    RowBox[{"(*", " ", 
     RowBox[{"Actual", " ", "working", " ", 
      RowBox[{"function", ".", " ", "Two"}], " ", "entry", " ", "points"}], 
-    " ", "*)"}], "\n", 
+    " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"PutSolderingForm", "[", 
@@ -27067,8 +27029,8 @@ Cell[BoxData[
   StyleBox[GridBox[{
      {
       RowBox[{
-       RowBox[{"\[EmptySquare]", "[", "\[EmptyDownTriangle]", "]"}], 
-       "\[Xi]"}], 
+       RowBox[{"\[EmptySquare]", "[", "\[EmptyDownTriangle]", "]"}], "\[Xi]"}]
+       , 
       StyleBox[GridBox[{
          {"C", " ", "D"},
          {" ", "A", " "}
@@ -29478,8 +29440,7 @@ Cell[BoxData[
        {" "},
        {
         RowBox[{
-         RowBox[{"HostsOf", "[", "\[Sigma]\[UnderBracket]RiemannCD", "]"}], "^=", \
-
+         RowBox[{"HostsOf", "[", "\[Sigma]\[UnderBracket]RiemannCD", "]"}], "^=", 
          RowBox[{"{", 
           RowBox[{"M4", ",", 
            InterpretationBox[
@@ -35003,7 +34964,7 @@ ButtonData:>\\\"paclet:ref/message/Information/nomatch\\\", ButtonNote -> \
 },
 AutoGeneratedPackage->Automatic,
 WindowSize->{1172, 699},
-WindowMargins->{{117, Automatic}, {Automatic, 159}},
+WindowMargins->{{324, Automatic}, {167, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 ShowSelection->True,
 Magnification->1.5,
