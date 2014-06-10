@@ -329,10 +329,14 @@ Protect[UndefSpinStructure];
 
 Options[DefSpinor]={PrintDaggerAs->Identity};
 DefSpinor[spinor_[inds___],deps_,options:OptionsPattern[{DefSpinor,DefTensor}]]:=(DefTensor[spinor[inds],deps,FilterRules[{options},Options[DefTensor]],Dagger->Complex,DefInfo->{"spinor",""}];
-xAct`xTensor`Private`SetPrintAs[Dagger@spinor,xAct`xTensor`Private`PrintAsString[Dagger@spinor,OptionValue[PrintDaggerAs]]];);
+If[Dagger@spinor=!=spinor,
+xAct`xTensor`Private`SetPrintAs[Dagger@spinor,xAct`xTensor`Private`PrintAsString[Dagger@spinor,OptionValue[PrintDaggerAs]]]
+];);
 
 DefSpinor[spinor_[inds___],deps_,sym_,options:OptionsPattern[{DefSpinor,DefTensor}]]:=(DefTensor[spinor[inds],deps,sym,FilterRules[{options},Options[DefTensor]],Dagger->Complex,DefInfo->{"spinor",""}];
-xAct`xTensor`Private`SetPrintAs[Dagger@spinor,xAct`xTensor`Private`PrintAsString[Dagger@spinor,OptionValue[PrintDaggerAs]]];);
+If[Dagger@spinor=!=spinor,
+xAct`xTensor`Private`SetPrintAs[Dagger@spinor,xAct`xTensor`Private`PrintAsString[Dagger@spinor,OptionValue[PrintDaggerAs]]]
+];);
 UndefSpinor=UndefTensor;
 SetNumberOfArguments[DefSpinor,{2,Infinity}];
 Protect[DefSpinor,UndefSpinor];

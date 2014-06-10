@@ -157,3 +157,4 @@
 15 Feb   * Released with version number 1.0.5.
 
 25 Apr  - Added Thomas's PrintDaggerAs option in DefSpinor
+10 June - Fixed problem in PrintDaggerAs. Thanks to Thomas for reporting it.
