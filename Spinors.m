@@ -121,6 +121,9 @@ DefSpinor::usage="DefSpinor is a renaming of DefTensor with the option Dagger->C
 UndefSpinor::usage="UndefSpinor is a renaming of UndefTensor, for the sake of clarity.";
 Sigma::usage="Sigma[sigma] is automatically transformed into the symbol Sigmasigma, where sigma is a soldering form. The symbol Sigmasigma is the head used to represent the quantity sigma[a,-A,-A\[Dagger]]sigma[b,-B,A\[Dagger]] which often appears in the transformation of spinor expressions into tensor ones.";
 PrintDaggerAs::usage="PrintDaggerAs is an optional function for DefSpinor that specifies how the PrintAs string for the complex conjugate spinor should be generated from the PrintAs string for the original spinor.";
+AddDagger::usage="Built-in option value for PrintDaggerAs. This option value simply appends the $DaggerCharacter to the string chosen for PrintAs.";
+AddBar::usage="Built-in option value for PrintDaggerAs. This option value adds an overbar to the string chosen for PrintAs.";
+AddTilde::usage="Built-in option value for PrintDaggerAs. This option value adds a tilde on top of the string chosen for PrintAs.";
 
 
 (* Info functions *)
@@ -325,6 +328,11 @@ $SolderingForms=newlist;]/;MemberQ[$SolderingForms,sigma];
 UndefSpinStructure[x_]:=Throw@Message[UndefSpinStructure::unknown,"spin structure", x];
 SetNumberOfArguments[UndefSpinStructure,1];
 Protect[UndefSpinStructure];
+
+
+AddBar[T_?xTensorQ]:=StringJoin["\!\(","\*OverscriptBox[\(",PrintAs@Evaluate@Dagger[T],"\),\(_\)]","\)"];
+AddTilde[T_?xTensorQ]:=StringJoin["\!\(","\*OverscriptBox[\(",PrintAs@Evaluate@Dagger@T,"\),\(~\)]","\)"];
+AddDagger[T_?xTensorQ]:=StringJoin[PrintAs@Evaluate@Dagger@T,$DaggerCharacter];
 
 
 Options[DefSpinor]={PrintDaggerAs->Identity};

@@ -679,9 +679,30 @@ into tensor ones.\>\""}], ";"}], "\[IndentingNewLine]",
      RowBox[{"PrintDaggerAs", "::", "usage"}], "=", 
      "\"\<PrintDaggerAs is an optional function for DefSpinor that specifies \
 how the PrintAs string for the complex conjugate spinor should be generated \
-from the PrintAs string for the original spinor.\>\""}], ";"}]}]}]], "Input",
+from the PrintAs string for the original spinor.\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AddDagger", "::", "usage"}], "=", 
+     "\"\<Built-in option value for PrintDaggerAs. This option value simply \
+appends the $DaggerCharacter to the string chosen for PrintAs.\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AddBar", "::", "usage"}], "=", 
+     "\"\<Built-in option value for PrintDaggerAs. This option value adds an \
+overbar to the string chosen for PrintAs.\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AddTilde", "::", "usage"}], "=", 
+     "\"\<Built-in option value for PrintDaggerAs. This option value adds a \
+tilde on top of the string chosen for PrintAs.\>\""}], ";"}]}]}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.6074033292387247`*^9, 3.607403332062971*^9}}],
+ CellChangeTimes->{{3.6074033292387247`*^9, 3.607403332062971*^9}, {
+  3.612061564461231*^9, 3.612061624226408*^9}, {3.612065062090151*^9, 
+  3.612065112411234*^9}, {3.612065227012702*^9, 3.612065310556301*^9}, {
+  3.6120653887009077`*^9, 3.6120654142558737`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -2192,9 +2213,55 @@ reasons, we include these two heads:\
   3.610078129258463*^9}}],
 
 Cell["\<\
-Thomas\[CloseCurlyQuote]s code to include printing options for dagger spinors.\
+Some built-in options for PrintDaggerAs. Code supplied by Thomas B\
+\[ADoubleDot]ckdahl  \
 \>", "Text",
- CellChangeTimes->{{3.607363025317233*^9, 3.607363048828104*^9}}],
+ CellChangeTimes->{{3.6120626165534973`*^9, 3.612062661030167*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"AddBar", "[", 
+    RowBox[{"T_", "?", "xTensorQ"}], "]"}], ":=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"\"\<\\!\\(\>\"", ",", "\"\<\\*OverscriptBox[\\(\>\"", ",", 
+     RowBox[{"PrintAs", "@", 
+      RowBox[{"Evaluate", "@", 
+       RowBox[{"Dagger", "[", "T", "]"}]}]}], ",", "\"\<\\),\\(_\\)]\>\"", 
+     ",", "\"\<\\)\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AddTilde", "[", 
+    RowBox[{"T_", "?", "xTensorQ"}], "]"}], ":=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"\"\<\\!\\(\>\"", ",", "\"\<\\*OverscriptBox[\\(\>\"", ",", 
+     RowBox[{"PrintAs", "@", 
+      RowBox[{"Evaluate", "@", 
+       RowBox[{"Dagger", "@", "T"}]}]}], ",", "\"\<\\),\\(~\\)]\>\"", ",", 
+     "\"\<\\)\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AddDagger", "[", 
+    RowBox[{"T_", "?", "xTensorQ"}], "]"}], ":=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"PrintAs", "@", 
+      RowBox[{"Evaluate", "@", 
+       RowBox[{"Dagger", "@", "T"}]}]}], ",", "$DaggerCharacter"}], "]"}]}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.612061423989097*^9, 3.612061423994802*^9}, {
+  3.612062254062397*^9, 3.612062257099844*^9}, {3.612062928458147*^9, 
+  3.612062943977069*^9}, {3.612063073988072*^9, 3.6120630947966003`*^9}, {
+  3.6120633868891087`*^9, 3.612063396009863*^9}, {3.612063695227092*^9, 
+  3.612063695688628*^9}}],
+
+Cell["\<\
+Thomas B\[ADoubleDot]ckdahl code to include printing options for dagger \
+spinors.\
+\>", "Text",
+ CellChangeTimes->{{3.607363025317233*^9, 3.607363048828104*^9}, {
+  3.612062700224327*^9, 3.612062704471878*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -3507,11 +3574,11 @@ Cell[BoxData[
         RowBox[{"DeleteDuplicates", "[", 
          RowBox[{"Prepend", "[", 
           RowBox[{"f", ",", "Free"}], "]"}], "]"}], "[", "expr", "]"}], ",", 
-       "sigma"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       "sigma"}], "]"}]}], ";"}], "\n", 
    RowBox[{"(*", " ", 
     RowBox[{"Actual", " ", "working", " ", 
      RowBox[{"function", ".", " ", "Two"}], " ", "entry", " ", "points"}], 
-    " ", "*)"}], "\n", 
+    " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"PutSolderingForm", "[", 
@@ -27042,8 +27109,8 @@ Cell[BoxData[
   StyleBox[GridBox[{
      {
       RowBox[{
-       RowBox[{"\[EmptySquare]", "[", "\[EmptyDownTriangle]", "]"}], 
-       "\[Xi]"}], 
+       RowBox[{"\[EmptySquare]", "[", "\[EmptyDownTriangle]", "]"}], "\[Xi]"}]
+       , 
       StyleBox[GridBox[{
          {"C", " ", "D"},
          {" ", "A", " "}
@@ -29453,8 +29520,7 @@ Cell[BoxData[
        {" "},
        {
         RowBox[{
-         RowBox[{"HostsOf", "[", "\[Sigma]\[UnderBracket]RiemannCD", "]"}], "^=", \
-
+         RowBox[{"HostsOf", "[", "\[Sigma]\[UnderBracket]RiemannCD", "]"}], "^=", 
          RowBox[{"{", 
           RowBox[{"M4", ",", 
            InterpretationBox[
@@ -34978,11 +35044,11 @@ ButtonData:>\\\"paclet:ref/message/Information/nomatch\\\", ButtonNote -> \
 },
 AutoGeneratedPackage->Automatic,
 WindowSize->{1172, 699},
-WindowMargins->{{Automatic, 353}, {166, Automatic}},
+WindowMargins->{{50, Automatic}, {0, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 ShowSelection->True,
 Magnification->1.5,
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
 
