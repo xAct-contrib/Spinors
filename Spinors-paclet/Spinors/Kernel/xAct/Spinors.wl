@@ -1,12 +1,12 @@
 (* ::Package:: *)
 
-xAct`Spinors`$xTensorVersionExpected={"1.1.1",{2014,9,28}};
-xAct`Spinors`$Version={"1.0.6",{2023,6,23}}
+xAct`Spinors`$xTensorVersionExpected={"1.1.1", {2014, 9, 28}};
+xAct`Spinors`$Version={"1.0.7", {2025, 12, 29}}
 
 
 (* Spinors: spinor calculus in General Relativity *)
 
-(* Copyright (C) 2006-2021 Alfonso Garcia-Parrado Gomez-Lobo and Jose M. Martin-Garcia *)
+(* Copyright (C) 2006-2026 Alfonso Garcia-Parrado Gomez-Lobo and Jose M. Martin-Garcia *)
 
 (* This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published 
 by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
@@ -35,7 +35,7 @@ if not, write to the Free Software Foundation, Inc., 59 Temple Place-Suite 330, 
   
 (* :Context: xAct`Spinors` *)
 
-(* :Package Version: 1.0.6 *)
+(* :Package Version: 1.0.7 *)
 
 (* :Copyright: Alfonso Garcia-Parrado Gomez-Lobo and Jose M. Martin-Garcia (2006-2021) *)
 
@@ -80,7 +80,7 @@ If[Not@ OrderedQ@ Map[Last, {xAct`Spinors`$xTensorVersionExpected, xAct`xTensor`
 
 Print[xAct`xCore`Private`bars]
 Print["Package xAct`Spinors`  version ",xAct`Spinors`$Version[[1]],", ",xAct`Spinors`$Version[[2]]];
-Print["CopyRight (C) 2006-2018, Alfonso Garcia-Parrado Gomez-Lobo and Jose M. Martin-Garcia, under the General Public License."];
+Print["CopyRight (C) 2006-2026, Alfonso Garcia-Parrado Gomez-Lobo and Jose M. Martin-Garcia, under the General Public License."];
 
 
 Off[General::shdw]
@@ -1059,10 +1059,10 @@ DecoBuild[tft_, inds_, eps_, epsdag_][{list1_, list2_, list_}]:=
 
 
 Options[DefSpinCovD]:={
+	SymbolOfCovD->{";","\[EmptyDownTriangle]"},
 	Torsion->False,
 	FromMetric->Null,
 	ExtendedFrom->Null,
-	Master->Null,
 	ProtectNewSymbol->$ProtectNewSymbols,
 	DefInfo->{"spin covariant derivative",""}
 };
