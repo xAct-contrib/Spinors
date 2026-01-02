@@ -1,7 +1,7 @@
 PacletObject[
     <|
         "Name" -> "Spinors",
-        "Version" -> "1.0.6",
+        "Version" -> "1.0.7",
         "WolframVersion" -> "13.2+",
         "Extensions" ->
             {
