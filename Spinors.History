@@ -154,26 +154,22 @@
 4 Feb  - Corrected problem with non-existent options message issued by DefSpinStructure in relation to DefSpinCovD
          Thanks to Thomas Bäckdahl for spotting this and providing the solution.
 
-15 Feb   * Released with version number 1.0.5.
+15 Feb * Released with version number 1.0.5.
 
-25 Apr  - Added Thomas's PrintDaggerAs option in DefSpinor
-10 June - Fixed problem in PrintDaggerAs. Thanks to Thomas for reporting it.
-18 June - Added built-in options AddBar, AddTilde and AddDagger for PrintDaggerAs. Thanks to
+25 Apr - Added Thomas's PrintDaggerAs option in DefSpinor
+10 Jun - Fixed problem in PrintDaggerAs. Thanks to Thomas for reporting it.
+18 Jun - Added built-in options AddBar, AddTilde and AddDagger for PrintDaggerAs. Thanks to
           Thomas for supplying the code of these built-in options.
 
-28 Sep	 * Released with version number 1.0.6.
+28 Sep * Released with version number 1.0.6.
 
 -------------------------------------------------------------------------
 2015
 
-23 Aug	 * Released again with version number 1.0.6.
+23 Aug * Released again with version number 1.0.6.
 
 -------------------------------------------------------------------------
-2016
+2025
 
--------------------------------------------------------------------------
-2017
-
--------------------------------------------------------------------------
-2018
-
+29 Dec - Add the SymbolOfCovD option in DefSpinCovD, as requested by Thomas Bäckdahl. 
+       * Released again with version number 1.0.7.
