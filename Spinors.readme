@@ -1,8 +1,8 @@
 ############################################################################
 #
-# Readme file of the Spinors (version 1.0.2) package - Installation Instructions
+# Readme file of the Spinors (version 1.0.7) package - Installation Instructions
 #
-# Language: Mathematica 7.0 or later. 
+# Language: Wolfram Language
 #
 # Description: The Spinors package is part of the xAct suite of Mathematica  
 #              packages to deal with computations with spinors in 4-dimensional 
@@ -10,13 +10,7 @@
 #              calculus developed by Penrose to work in General Relativity and
 #              the specific rules of this calculus are implemented.   
 #
-# Developers: Alfonso García-Parrado 
-#             Centro de Matemática, Universidade do Minho (Portugal)                  
-#                      and 
-#             José M. Martín-García 
-#             Laboratoire Univers et Théories, CNRS, France             
-#                                    and
-#             Institut d'Astrophysique de Paris, CNRS, France
+# Developers: Alfonso García-Parrado and José M. Martín-García 
 #             
 # Contact and bug report: alfonso@math.uminho.pt, jose@xact.es
 #
@@ -29,36 +23,38 @@ INSTALLATION INSTRUCTIONS
 
 In order to run Spinors you need to have first:
 
-1) Mathematica, at least version 7.0.
+1) Wolfram Mathematica.
 
 2) The xAct software, including Spinors and other packages it needs.
    They can all be downloaded as a single file
-   (the current version is 1.0.3):
+   (the current version is 1.3.0):
  
    Linux/Unix/Mac users:
-      http://www.xact.es/download/xAct_1.0.3.tgz
+      http://www.xact.es/download/xAct_1.3.0.tgz
    Windows users:
-      http://www.xact.es/download/xAct_1.0.3.zip
+      http://www.xact.es/download/xAct_1.3.0.zip
 
-The file xAct_1.0.3.tgz (or .zip) must be unpacked in one of the
+The file xAct_1.3.0.tgz (or .zip) must be unpacked in one of the
 directories prepared for Mathematica addons. We recommend,
 for single-user installations:
 
   Linux/Unix:
-      $HOME/.Mathematica/Applications/
+      $HOME/.Wolfram/Applications/
   Windows:
-      C:\Document and Settings\<user>\Application Data\Mathematica\Applications\
+      C:\Document and Settings\<user>\Application Data\Wolfram\Applications\
   Mac:
-      /Users/<user>/Library/Mathematica/Applications/
+      /Users/<user>/Library/Wolfram/Applications/
 
 or for system-wide installations:
 
   Linux/Unix:
-      /usr/share/Mathematica/Applications/
+      /usr/share/Wolfram/Applications/
   Windows:
-      C:\Documents and settings\All Users\Application data\Mathematica\Applications\
+      C:\Documents and settings\All Users\Application data\Wolfram\Applications\
   Mac:
-      /Library/Mathematica/Applications/
+      /Library/Wolfram/Applications/
+
+For WL versions before 14.1 use Mathematica instead of Wolfram in those paths.
 
 Everything will be placed in a directory xAct under Applications/.
 For further installation hints see the "Installation Notes" at the
